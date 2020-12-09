@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:three_page_design/core/constants/color_constant.dart';
 import 'package:three_page_design/core/constants/string_constants.dart';
 import 'package:three_page_design/core/text_style.dart';
@@ -10,9 +11,14 @@ class FeaturedClass {
   static Widget appbarClass(IconData icon) {
     return AppBar(
       elevation: 0,
-      leading: Icon(
-        icon,
-        color: ColorConstant.iconColor,
+      leading: InkWell(
+        onTap: () {
+          Get.back();
+        },
+        child: Icon(
+          icon,
+          color: Get.theme.iconTheme.color,
+        ),
       ),
       backgroundColor: ColorConstant.backgroundColor,
       actions: [
@@ -20,12 +26,19 @@ class FeaturedClass {
           width: 50.0,
           height: 50.0,
           decoration: new BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                  color: Colors.teal, width: 1.0, style: BorderStyle.solid),
-              image: new DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(StringConstants.imgBannerSrcStr))),
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: Colors.teal,
+              width: 1.0,
+              style: BorderStyle.solid,
+            ),
+            image: new DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage(
+                StringConstants.imgBannerSrcStr,
+              ),
+            ),
+          ),
         ),
         SizedBox(
           width: 20,
@@ -71,13 +84,17 @@ class FeaturedClass {
             crossAxisAlignment: CrossAxisAlignment.start,
             //mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(getItemDataClass.itemList[index].captionText),
+              Text(
+                getItemDataClass.itemList[index].captionText,
+              ),
               SizedBox(
                 height: 20,
               ),
               Text(
                 getItemDataClass.itemList[index].title,
-                style: TextStyle(fontSize: 24,),
+                style: TextStyle(
+                  fontSize: 24,
+                ),
               ),
               Text(getItemDataClass.itemList[index].subTitle),
             ],

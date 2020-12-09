@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:three_page_design/core/constants/string_constants.dart';
 import 'package:three_page_design/core/share_widgets/featured_class.dart';
 import 'package:three_page_design/view/secon_page/get_item_data_list.dart';
@@ -11,7 +12,7 @@ class SeconPageClass extends StatefulWidget {
 }
 
 class _SeconPageClassState extends State<SeconPageClass> {
-List<String> headerList = ["Lessons","Revews","About"];
+  List<String> headerList = ["Lessons", "Revews", "About"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,38 +31,42 @@ List<String> headerList = ["Lessons","Revews","About"];
             // horizontal featured and icon widget design========
             FeaturedClass.featured(
                 captionName: "Quiqe wireframing in \n Sketch and XD"),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
 
             // header horizontal page menu list==============
             Container(
-            height: 100,
+              height: 100,
               margin: EdgeInsets.symmetric(horizontal: 30),
-              decoration: BoxDecoration(
-              ),
+              decoration: BoxDecoration(),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: headerList.length,
-                itemBuilder: (context,index){
+                itemBuilder: (context, index) {
                   return Container(
                     width: 120,
                     padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(headerList[index],style: TextStyle(fontSize: 18),),
+                    child: Text(
+                      headerList[index],
+                      style: TextStyle(fontSize: 18),
+                    ),
                   );
                 },
               ),
             ),
             //item list widget design==============
             Expanded(
-                child: ListView.builder(
-                  itemCount: getItemDataClass.itemList.length,
-                  itemBuilder: (context,index){
+              child: ListView.builder(
+                itemCount: getItemDataClass.itemList.length,
+                itemBuilder: (context, index) {
                   return FeaturedClass.itemCardDesign(index);
-                  },
-                      ),
-                    ),
-                    ],
-    ),
-    ),
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
     );
-}
+  }
 }
