@@ -3,7 +3,7 @@ import 'package:three_page_design/core/constants/string_constants.dart';
 import 'package:three_page_design/core/text_style.dart';
 import 'package:three_page_design/list_constrator.dart';
 
-class getData {
+class GetData {
   // String listTileLeadingImg;
   // String title;
   // String subTitle;
